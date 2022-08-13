@@ -19,6 +19,13 @@ return new class extends Migration {
                 ->on('properties')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('bu_git_id')
+                ->references('id')
+                ->on('bu_gits')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -31,6 +38,7 @@ return new class extends Migration {
     {
         Schema::table('destinations', function (Blueprint $table) {
             $table->dropForeign(['property_id']);
+            $table->dropForeign(['bu_git_id']);
         });
     }
 };

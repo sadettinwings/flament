@@ -6,8 +6,10 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\OwnerController;
+use App\Http\Controllers\Api\BuGitController;
 use App\Http\Controllers\Api\PropertyController;
 use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\OwnerBuGitsController;
 use App\Http\Controllers\Api\DestinationsController;
 
 /*
@@ -42,4 +44,16 @@ Route::name('api.')
         Route::apiResource('all-destinations', DestinationsController::class);
 
         Route::apiResource('owners', OwnerController::class);
+
+        // Owner Bu Gits
+        Route::get('/owners/{owner}/bu-gits', [
+            OwnerBuGitsController::class,
+            'index',
+        ])->name('owners.bu-gits.index');
+        Route::post('/owners/{owner}/bu-gits', [
+            OwnerBuGitsController::class,
+            'store',
+        ])->name('owners.bu-gits.store');
+
+        Route::apiResource('bu-gits', BuGitController::class);
     });

@@ -18,7 +18,13 @@ class User extends Authenticatable
     use Searchable;
     use HasApiTokens;
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'userable_id',
+        'userable_type',
+    ];
 
     protected $searchableFields = ['*'];
 
@@ -27,6 +33,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userable()
+    {
+        return $this->morphTo();
+    }
 
     public function isSuperAdmin()
     {

@@ -14,4 +14,9 @@ class Owner extends Model
     protected $fillable = ['name'];
 
     protected $searchableFields = ['*'];
+
+    public function buGits()
+    {
+        return $this->hasMany(BuGit::class);
+    }
 }

@@ -11,12 +11,17 @@ class Destinations extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'property_id'];
+    protected $fillable = ['name', 'property_id', 'bu_git_id'];
 
     protected $searchableFields = ['*'];
 
     public function property()
     {
         return $this->belongsTo(Property::class);
+    }
+
+    public function buGit()
+    {
+        return $this->belongsTo(BuGit::class);
     }
 }

@@ -5,6 +5,7 @@ namespace Tests\Feature\Api;
 use App\Models\User;
 use App\Models\Destinations;
 
+use App\Models\BuGit;
 use App\Models\Property;
 
 use Tests\TestCase;
@@ -54,6 +55,8 @@ class DestinationsTest extends TestCase
 
         $response = $this->postJson(route('api.all-destinations.store'), $data);
 
+        unset($data['bu_git_id']);
+
         $this->assertDatabaseHas('destinations', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);
@@ -67,16 +70,20 @@ class DestinationsTest extends TestCase
         $destinations = Destinations::factory()->create();
 
         $property = Property::factory()->create();
+        $buGit = BuGit::factory()->create();
 
         $data = [
             'name' => $this->faker->name,
             'property_id' => $property->id,
+            'bu_git_id' => $buGit->id,
         ];
 
         $response = $this->putJson(
             route('api.all-destinations.update', $destinations),
             $data
         );
+
+        unset($data['bu_git_id']);
 
         $data['id'] = $destinations->id;
 

@@ -12,13 +12,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->unsignedBigInteger('property_id');
-            $table->unsignedBigInteger('bu_git_id');
-
-            $table->timestamps();
+        Schema::table('bu_gits', function (Blueprint $table) {
+            $table
+                ->foreign('owner_id')
+                ->references('id')
+                ->on('owners')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -29,6 +29,8 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('destinations');
+        Schema::table('bu_gits', function (Blueprint $table) {
+            $table->dropForeign(['owner_id']);
+        });
     }
 };

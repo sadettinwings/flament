@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\BuGitController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\DestinationsController;
@@ -70,4 +71,5 @@ Route::prefix('/')
         ])->name('all-destinations.destroy');
 
         Route::resource('owners', OwnerController::class);
+        Route::resource('bu-gits', BuGitController::class);
     });

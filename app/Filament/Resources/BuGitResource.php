@@ -2,31 +2,35 @@
 
 namespace App\Filament\Resources;
 
-use App\Models\Owner;
+use App\Models\BuGit;
 use Filament\{Tables, Forms};
 use Filament\Resources\{Form, Table, Resource};
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\OwnerResource\Pages;
+use Filament\Forms\Components\BelongsToSelect;
+use Filament\Tables\Filters\MultiSelectFilter;
+use App\Filament\Resources\BuGitResource\Pages;
 
-class OwnerResource extends Resource
+class BuGitResource extends Resource
 {
-    protected static ?string $model = Owner::class;
+    protected static ?string $model = BuGit::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'id';
 
     public static function form(Form $form): Form
     {
         return $form->schema([
             Card::make()->schema([
                 Grid::make(['default' => 0])->schema([
-                    RichEditor::make('name')
-                        ->rules(['required', 'max:255', 'string'])
-                        ->placeholder('Name')
+                    BelongsToSelect::make('owner_id')
+                        ->rules(['required', 'exists:owners,id'])
+                        ->relationship('owner', 'name')
+                        ->searchable()
+                        ->placeholder('Owner')
                         ->columnSpan([
                             'default' => 12,
                             'md' => 12,
@@ -40,7 +44,9 @@ class OwnerResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([Tables\Columns\TextColumn::make('name')->limit(50)])
+            ->columns([
+                Tables\Columns\TextColumn::make('owner.name')->limit(50),
+            ])
             ->filters([
                 Tables\Filters\Filter::make('created_at')
                     ->form([
@@ -72,20 +78,25 @@ class OwnerResource extends Resource
                                 )
                             );
                     }),
+
+                MultiSelectFilter::make('owner_id')->relationship(
+                    'owner',
+                    'name'
+                ),
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [OwnerResource\RelationManagers\BuGitsRelationManager::class];
+        return [BuGitResource\RelationManagers\UsersRelationManager::class];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOwners::route('/'),
-            'create' => Pages\CreateOwner::route('/create'),
-            'edit' => Pages\EditOwner::route('/{record}/edit'),
+            'index' => Pages\ListBuGits::route('/'),
+            'create' => Pages\CreateBuGit::route('/create'),
+            'edit' => Pages\EditBuGit::route('/{record}/edit'),
         ];
     }
 }

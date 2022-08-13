@@ -25,6 +25,7 @@ class DestinationsFactory extends Factory
         return [
             'name' => $this->faker->name,
             'property_id' => \App\Models\Property::factory(),
+            'bu_git_id' => \App\Models\BuGit::factory(),
         ];
     }
 }

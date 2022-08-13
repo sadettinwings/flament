@@ -12,11 +12,9 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
+        Schema::create('bu_gits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->unsignedBigInteger('property_id');
-            $table->unsignedBigInteger('bu_git_id');
+            $table->unsignedBigInteger('owner_id');
 
             $table->timestamps();
         });
@@ -29,6 +27,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('destinations');
+        Schema::dropIfExists('bu_gits');
     }
 };

@@ -28,6 +28,12 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => \Hash::make('password'),
             'remember_token' => Str::random(10),
+            'userable_type' => $this->faker->randomElement([
+                \App\Models\BuGit::class,
+            ]),
+            'userable_id' => function (array $item) {
+                return app($item['userable_type'])->factory();
+            },
         ];
     }
 

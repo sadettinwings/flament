@@ -15,6 +15,12 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
+        Permission::create(['name' => 'list bugits']);
+        Permission::create(['name' => 'view bugits']);
+        Permission::create(['name' => 'create bugits']);
+        Permission::create(['name' => 'update bugits']);
+        Permission::create(['name' => 'delete bugits']);
+
         Permission::create(['name' => 'list alldestinations']);
         Permission::create(['name' => 'view alldestinations']);
         Permission::create(['name' => 'create alldestinations']);
