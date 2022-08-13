@@ -21,6 +21,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update alldestinations']);
         Permission::create(['name' => 'delete alldestinations']);
 
+        Permission::create(['name' => 'list owners']);
+        Permission::create(['name' => 'view owners']);
+        Permission::create(['name' => 'create owners']);
+        Permission::create(['name' => 'update owners']);
+        Permission::create(['name' => 'delete owners']);
+
         Permission::create(['name' => 'list properties']);
         Permission::create(['name' => 'view properties']);
         Permission::create(['name' => 'create properties']);

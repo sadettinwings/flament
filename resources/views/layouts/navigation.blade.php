@@ -33,6 +33,11 @@
                         All Destinations
                         </x-dropdown-link>
                         @endcan
+                        @can('view-any', App\Models\Owner::class)
+                        <x-dropdown-link href="{{ route('owners.index') }}">
+                        Owners
+                        </x-dropdown-link>
+                        @endcan
                 </x-nav-dropdown>
 
                 @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
@@ -113,6 +118,11 @@
                 @can('view-any', App\Models\Destinations::class)
                 <x-responsive-nav-link href="{{ route('all-destinations.index') }}">
                 All Destinations
+                </x-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Owner::class)
+                <x-responsive-nav-link href="{{ route('owners.index') }}">
+                Owners
                 </x-responsive-nav-link>
                 @endcan
 

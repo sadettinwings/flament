@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\OwnerController;
 use App\Http\Controllers\Api\PropertyController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\DestinationsController;
@@ -39,4 +40,6 @@ Route::name('api.')
         Route::apiResource('properties', PropertyController::class);
 
         Route::apiResource('all-destinations', DestinationsController::class);
+
+        Route::apiResource('owners', OwnerController::class);
     });

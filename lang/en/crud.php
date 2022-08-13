@@ -62,6 +62,18 @@ return [
         ],
     ],
 
+    'owners' => [
+        'name' => 'Owners',
+        'index_title' => 'Owners List',
+        'new_title' => 'New Owner',
+        'create_title' => 'Create Owner',
+        'edit_title' => 'Edit Owner',
+        'show_title' => 'Show Owner',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',

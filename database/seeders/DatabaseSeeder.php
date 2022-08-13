@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsSeeder::class);
 
         $this->call(DestinationsSeeder::class);
+        $this->call(OwnerSeeder::class);
         $this->call(PropertySeeder::class);
         $this->call(UserSeeder::class);
     }
