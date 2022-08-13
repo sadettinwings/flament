@@ -45,20 +45,6 @@
                         @endcan
                 </x-nav-dropdown>
 
-                @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
-                    Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
-                <x-nav-dropdown title="Access Management" align="right" width="48">
-                    
-                    @can('view-any', Spatie\Permission\Models\Role::class)
-                    <x-dropdown-link href="{{ route('roles.index') }}">Roles</x-dropdown-link>
-                    @endcan
-                
-                    @can('view-any', Spatie\Permission\Models\Permission::class)
-                    <x-dropdown-link href="{{ route('permissions.index') }}">Permissions</x-dropdown-link>
-                    @endcan
-                    
-                </x-nav-dropdown>
-                @endif
             </div>
 
             <!-- Settings Dropdown -->
@@ -136,18 +122,6 @@
                 </x-responsive-nav-link>
                 @endcan
 
-                @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
-                    Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
-                    
-                    @can('view-any', Spatie\Permission\Models\Role::class)
-                    <x-responsive-nav-link href="{{ route('roles.index') }}">Roles</x-responsive-nav-link>
-                    @endcan
-                
-                    @can('view-any', Spatie\Permission\Models\Permission::class)
-                    <x-responsive-nav-link href="{{ route('permissions.index') }}">Permissions</x-responsive-nav-link>
-                    @endcan
-                    
-                @endif
         </div>
 
         <!-- Responsive Settings Options -->

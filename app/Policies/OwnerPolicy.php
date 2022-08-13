@@ -18,7 +18,7 @@ class OwnerPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list owners');
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class OwnerPolicy
      */
     public function view(User $user, Owner $model)
     {
-        return $user->hasPermissionTo('view owners');
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class OwnerPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create owners');
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class OwnerPolicy
      */
     public function update(User $user, Owner $model)
     {
-        return $user->hasPermissionTo('update owners');
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class OwnerPolicy
      */
     public function delete(User $user, Owner $model)
     {
-        return $user->hasPermissionTo('delete owners');
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class OwnerPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete owners');
+        return true;
     }
 
     /**

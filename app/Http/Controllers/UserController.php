@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -37,9 +36,7 @@ class UserController extends Controller
     {
         $this->authorize('create', User::class);
 
-        $roles = Role::get();
-
-        return view('app.users.create', compact('roles'));
+        return view('app.users.create');
     }
 
     /**
@@ -55,8 +52,6 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
-
-        $user->syncRoles($request->roles);
 
         return redirect()
             ->route('users.edit', $user)
@@ -84,9 +79,7 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        $roles = Role::get();
-
-        return view('app.users.edit', compact('user', 'roles'));
+        return view('app.users.edit', compact('user'));
     }
 
     /**
@@ -107,8 +100,6 @@ class UserController extends Controller
         }
 
         $user->update($validated);
-
-        $user->syncRoles($request->roles);
 
         return redirect()
             ->route('users.edit', $user)

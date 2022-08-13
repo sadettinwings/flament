@@ -18,7 +18,7 @@ class BuGitPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list bugits');
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class BuGitPolicy
      */
     public function view(User $user, BuGit $model)
     {
-        return $user->hasPermissionTo('view bugits');
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class BuGitPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create bugits');
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class BuGitPolicy
      */
     public function update(User $user, BuGit $model)
     {
-        return $user->hasPermissionTo('update bugits');
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class BuGitPolicy
      */
     public function delete(User $user, BuGit $model)
     {
-        return $user->hasPermissionTo('delete bugits');
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class BuGitPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete bugits');
+        return true;
     }
 
     /**

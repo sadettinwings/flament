@@ -18,7 +18,7 @@ class DestinationsPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list alldestinations');
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class DestinationsPolicy
      */
     public function view(User $user, Destinations $model)
     {
-        return $user->hasPermissionTo('view alldestinations');
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class DestinationsPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create alldestinations');
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class DestinationsPolicy
      */
     public function update(User $user, Destinations $model)
     {
-        return $user->hasPermissionTo('update alldestinations');
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class DestinationsPolicy
      */
     public function delete(User $user, Destinations $model)
     {
-        return $user->hasPermissionTo('delete alldestinations');
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class DestinationsPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete alldestinations');
+        return true;
     }
 
     /**

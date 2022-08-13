@@ -18,7 +18,7 @@ class PropertyPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list properties');
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class PropertyPolicy
      */
     public function view(User $user, Property $model)
     {
-        return $user->hasPermissionTo('view properties');
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class PropertyPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create properties');
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class PropertyPolicy
      */
     public function update(User $user, Property $model)
     {
-        return $user->hasPermissionTo('update properties');
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class PropertyPolicy
      */
     public function delete(User $user, Property $model)
     {
-        return $user->hasPermissionTo('delete properties');
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class PropertyPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete properties');
+        return true;
     }
 
     /**
