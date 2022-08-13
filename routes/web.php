@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\OwnerController;
-use App\Http\Controllers\BuGitController;
-use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\DestinationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,36 +23,4 @@ Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
         Route::resource('users', UserController::class);
-        Route::resource('properties', PropertyController::class);
-        Route::get('all-destinations', [
-            DestinationsController::class,
-            'index',
-        ])->name('all-destinations.index');
-        Route::post('all-destinations', [
-            DestinationsController::class,
-            'store',
-        ])->name('all-destinations.store');
-        Route::get('all-destinations/create', [
-            DestinationsController::class,
-            'create',
-        ])->name('all-destinations.create');
-        Route::get('all-destinations/{destinations}', [
-            DestinationsController::class,
-            'show',
-        ])->name('all-destinations.show');
-        Route::get('all-destinations/{destinations}/edit', [
-            DestinationsController::class,
-            'edit',
-        ])->name('all-destinations.edit');
-        Route::put('all-destinations/{destinations}', [
-            DestinationsController::class,
-            'update',
-        ])->name('all-destinations.update');
-        Route::delete('all-destinations/{destinations}', [
-            DestinationsController::class,
-            'destroy',
-        ])->name('all-destinations.destroy');
-
-        Route::resource('owners', OwnerController::class);
-        Route::resource('bu-gits', BuGitController::class);
     });

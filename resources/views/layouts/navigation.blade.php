@@ -23,26 +23,6 @@
                         Users
                         </x-dropdown-link>
                         @endcan
-                        @can('view-any', App\Models\Property::class)
-                        <x-dropdown-link href="{{ route('properties.index') }}">
-                        Properties
-                        </x-dropdown-link>
-                        @endcan
-                        @can('view-any', App\Models\Destinations::class)
-                        <x-dropdown-link href="{{ route('all-destinations.index') }}">
-                        All Destinations
-                        </x-dropdown-link>
-                        @endcan
-                        @can('view-any', App\Models\Owner::class)
-                        <x-dropdown-link href="{{ route('owners.index') }}">
-                        Owners
-                        </x-dropdown-link>
-                        @endcan
-                        @can('view-any', App\Models\BuGit::class)
-                        <x-dropdown-link href="{{ route('bu-gits.index') }}">
-                        Bu Gits
-                        </x-dropdown-link>
-                        @endcan
                 </x-nav-dropdown>
 
             </div>
@@ -99,26 +79,6 @@
                 @can('view-any', App\Models\User::class)
                 <x-responsive-nav-link href="{{ route('users.index') }}">
                 Users
-                </x-responsive-nav-link>
-                @endcan
-                @can('view-any', App\Models\Property::class)
-                <x-responsive-nav-link href="{{ route('properties.index') }}">
-                Properties
-                </x-responsive-nav-link>
-                @endcan
-                @can('view-any', App\Models\Destinations::class)
-                <x-responsive-nav-link href="{{ route('all-destinations.index') }}">
-                All Destinations
-                </x-responsive-nav-link>
-                @endcan
-                @can('view-any', App\Models\Owner::class)
-                <x-responsive-nav-link href="{{ route('owners.index') }}">
-                Owners
-                </x-responsive-nav-link>
-                @endcan
-                @can('view-any', App\Models\BuGit::class)
-                <x-responsive-nav-link href="{{ route('bu-gits.index') }}">
-                Bu Gits
                 </x-responsive-nav-link>
                 @endcan
 
